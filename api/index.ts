@@ -1,6 +1,7 @@
 // @ts-ignore
-import handler from "../dist/server/assets/worker-entry-DfGDEsSQ.js";
+import * as handler from "../dist/server/assets/worker-entry-DfGDEsSQ.js";
 export const config = { runtime: "nodejs" };
 export default async function (req: Request) {
-  return handler.fetch(req);
+  const h = handler.default ?? handler;
+  return h.fetch(req);
 }
